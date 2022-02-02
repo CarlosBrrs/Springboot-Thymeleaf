@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" , xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Enviar parámetros del request HTTP GET - URL</title>
+</head>
+<body>
+<h1>Enviar parámetros del request HTTP GET - URL</h1>
+
+<ul>
+    <li>
+        <a th:href="@{/params/string(text='Muéranse todos desde HTML')}">/params/string?text=Muéranse todos desde
+            HTML</a>
+        <!--Todas las rutas URL en thymeleaf se especifican con @ y {} o a recursos del proyeto y los parámetros entre parentesis-->
+    </li>
+    <li>
+        <a th:href="@{/params/string(text='Muéranse algunos nada mas desde HTML')}">/params/string?text=Muéranse algunos
+            nada mas desde HTML</a>
+    </li>
+    <li>
+        <a th:href="@{/params/mix-params(myText='No se muera nadie desde HTML', number=9)}">/params/mix-params?myText=No
+            se muera nadie desde HTML&numero=9</a>  <!--Varios parámetros se separan por coma-->
+    </li>
+    <li>
+        <a th:href="@{/params/mix-params-servlet-request(myText='Muerete desde HTML', number=6)}">/params/mix-params-servlet-request?myText=Muerete
+            desde HTML&numero=6</a>
+    </li>
+</ul>
+
+</body>
+</html>

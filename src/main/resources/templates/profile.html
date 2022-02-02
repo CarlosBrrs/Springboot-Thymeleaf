@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" , xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+<span th:text="${usuario.name}"></span>     <!--La llave . el atributo que quiero mostrar del valor-->
+<span th:text="${usuario.lastname}"></span>
+<br/>
+<span th:if="${usuario.email}" th:text="${usuario.email}"></span>    <!--El if de thymeleaf-->
+<span th:if="${usuario.email == null}" th:text="'El usuario no posee email registrado'"></span>
+<!--El else de thymeleaf es evaluar el camino alternativo-->
+<!--Tambien puede funcionar con el texto entre los span sin usar el th:text-->
+<!--    <span th:if="${usuario.email == null}">El usuario no posee email registrado</span>-->
+</body>
+</html>
