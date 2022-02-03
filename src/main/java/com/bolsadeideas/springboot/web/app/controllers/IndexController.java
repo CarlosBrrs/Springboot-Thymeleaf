@@ -1,6 +1,8 @@
 package com.bolsadeideas.springboot.web.app.controllers;
 
 import com.bolsadeideas.springboot.web.app.models.User;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/app")
 public class IndexController {
+	
+	//Anotación value trae valores desde application.properties y los inserta en las variables con el fin de desacoplar
+	@Value("${text.indexController.index.titulo}")
+	private String textIndex;
+	
+	@Value("${text.indexController.profile.titulo}")
+	private String textProfile;
+	
+	@Value("${text.indexController.list.titulo}")
+	private String textList;
 
 //    @RequestMapping(value = "/index", method = RequestMethod.GET)
 //    @RequestMapping(value = "/index")
@@ -22,7 +34,7 @@ public class IndexController {
 
     @GetMapping({"/index", "/", "", "/home"})
     public String index(Model model) {
-        model.addAttribute("titulo", "Me quiero morir desde metodo index con Model");
+        model.addAttribute("titulo", textIndex);
         return "index";
     }
 
@@ -52,7 +64,7 @@ public class IndexController {
     @RequestMapping("/profile")
     public String profile(Model model) {
         User user = User.builder().name("Carlos").lastname("Barrios").email("carlos@mail.com").build();
-        model.addAttribute("titulo", "Perfil de usuario: ".concat(user.getName()));
+        model.addAttribute("titulo", textProfile.concat(user.getName()));
         model.addAttribute("usuario", user);
         return "profile";
     }
@@ -69,7 +81,7 @@ public class IndexController {
         usersList.add(User.builder().name("Andrés").lastname("Jimenez").email("andres@mail.com").build());
         usersList.add(User.builder().name("Maria").lastname("Ferrer").email("maria@mail.com").build());*/
         model.addAttribute("usuarios", usersList);
-        model.addAttribute("titulo", "Lista de usuarios: ");
+        model.addAttribute("titulo", textList);
         return "list";
     }
 
