@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class EjemploVariablesRutaController {
 
     @GetMapping("/")
-    public String indexVariables (Model model) {
+    public String indexVariables(Model model) {
         model.addAttribute("titulo", "Enviar parámetros de la ruta (@PathVariable)");
         return "variables/variablesIndex";
     }
+
     @GetMapping("/string/{texto}")
     public String variables(@PathVariable String texto, Model model) {
         model.addAttribute("titulo", "Recibir parámetros de la ruta (@PathVariable)");
