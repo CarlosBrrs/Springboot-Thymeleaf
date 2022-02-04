@@ -1,7 +1,6 @@
 package com.bolsadeideas.springboot.web.app.controllers;
 
 import com.bolsadeideas.springboot.web.app.models.User;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,16 +14,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/app")
 public class IndexController {
-	
-	//Anotación value trae valores desde application.properties y los inserta en las variables con el fin de desacoplar
-	@Value("${text.indexController.index.titulo}")
-	private String textIndex;
-	
-	@Value("${text.indexController.profile.titulo}")
-	private String textProfile;
-	
-	@Value("${text.indexController.list.titulo}")
-	private String textList;
+
+    //Anotación value trae valores desde application.properties y los inserta en las variables con el fin de desacoplar
+    @Value("${text.indexController.index.titulo}")
+    private String textIndex;
+
+    @Value("${text.indexController.profile.titulo}")
+    private String textProfile;
+
+    @Value("${text.indexController.list.titulo}")
+    private String textList;
 
 //    @RequestMapping(value = "/index", method = RequestMethod.GET)
 //    @RequestMapping(value = "/index")
